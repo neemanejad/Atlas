@@ -11,8 +11,10 @@ Atlas::Atlas(QWidget* parent) : QWidget(parent) {
 Atlas::~Atlas() {}
 
 void Atlas::AddLibraryOption(const QString& text) {
-	QPushButton* libraryOption = new QPushButton(text);
+	LibraryOption* libraryOption = new LibraryOption(text);
 	leftPaneLayout->addWidget(libraryOption);
+
+	connect(libraryOption, SIGNAL(libraryOptionClicked(LibraryOption*)), this, SLOT(ChangeRightPaneView(LibraryOption*)));
 }
 
 void Atlas::BuildLibraryView() {
@@ -32,6 +34,10 @@ void Atlas::BuildLibraryView() {
 	libraryViewLayout->addWidget(leftPane);
 	libraryViewLayout->addWidget(rightPane);
 
-	QLabel* placeholderLabelText = new QLabel("Hello");
-	rightPaneLayout->addWidget(placeholderLabelText);
+	rightPaneLabel = new QLabel("Initial text");
+	rightPaneLayout->addWidget(rightPaneLabel);
+}
+
+void Atlas::ChangeRightPaneView(LibraryOption* selectedOption) {
+	rightPaneLabel->setText(selectedOption->text());
 }

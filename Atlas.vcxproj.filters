@@ -26,6 +26,9 @@
     <ClCompile Include="atlas.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="library_option.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -34,6 +37,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="atlas.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="library_option.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
