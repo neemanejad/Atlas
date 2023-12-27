@@ -2,12 +2,15 @@
 
 #include <qwidget.h>
 #include <qpushbutton.h>
+#include <string>
 
 class LibraryOption : public QPushButton
 {
 Q_OBJECT
 public:
-	explicit LibraryOption(const QString &text, QWidget* parent = nullptr);
+	QString filepath;
+	QString filename;
+	explicit LibraryOption(const QString &filepath, QWidget* parent = nullptr);
 	~LibraryOption();
 
 signals:

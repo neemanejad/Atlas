@@ -3,16 +3,27 @@
 #include <qpushbutton.h>
 #include <qlabel.h>
 #include <qsizepolicy.h>
+#include <qfiledialog.h>
 
 Atlas::Atlas(QWidget* parent) : QWidget(parent) {
 	setMinimumSize(600, 400);
 
 	menuBar = new QMenuBar(this);
-	QMenu* menu = new QMenu("Games");
-	menu->addAction("Add Game", [&]() -> void {
-		AddLibraryOption("newgame");
+	QMenu* gamesMenu = new QMenu("Games", this);
+	QMenu* settingsMenu = new QMenu("Settings", this);
+	gamesMenu->addAction("Add Game", [&]() -> void {
+		QString filename = QFileDialog::getOpenFileName(this,
+			tr("Add Game"), "", tr("Executable File (*.exe)"));
+
+		if (filename.size() == 0) {
+			return;
+		}
+
+		AddLibraryOption(filename);
 	});
-	menuBar->addMenu(menu);
+	menuBar->addMenu(settingsMenu);
+	menuBar->addMenu(gamesMenu);
+	menuBar->adjustSize();
 
 	BuildLibraryView();
 }

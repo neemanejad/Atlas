@@ -91,7 +91,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="atlas.cpp" />
-    <ClCompile Include="library_option.cpp" />
+    <ClCompile Include="library_option_button.cpp" />
     <ClCompile Include="library_options_list.cpp" />
     <ClCompile Include="library_selection_view.cpp" />
     <ClCompile Include="main.cpp" />
