@@ -32,6 +32,9 @@
     <ClCompile Include="library_selection_view.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="library_options_list.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -46,6 +49,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="library_selection_view.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="library_options_list.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

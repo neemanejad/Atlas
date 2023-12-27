@@ -1,5 +1,7 @@
 #include <qapplication.h>
 #include "atlas.h"
+#include <iostream>
+#include <fstream>
 
 int main(int argc, char *argv[])
 {
@@ -26,7 +28,16 @@ int main(int argc, char *argv[])
     window.AddLibraryOption("Option 17");
     window.AddLibraryOption("Option 18");
     window.AddLibraryOption("Option 19");
-    window.AddLibraryOption("Option 20");
+    window.AddLibraryOption("Option 21");
+    window.AddLibraryOption("Option 22");
+    window.AddLibraryOption("Option 23");
+    window.AddLibraryOption("Option 24");
+    window.AddLibraryOption("Option 25");
+    window.AddLibraryOption("Option 26");
+    window.AddLibraryOption("Option 27");
+    window.AddLibraryOption("Option 28");
+    window.AddLibraryOption("Option 29");
+    window.AddLibraryOption("Option 30");
 
     /*QWidget window;
     QWidget window2;
