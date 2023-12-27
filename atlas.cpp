@@ -7,6 +7,13 @@
 Atlas::Atlas(QWidget* parent) : QWidget(parent) {
 	setMinimumSize(600, 400);
 
+	menuBar = new QMenuBar(this);
+	QMenu* menu = new QMenu("Games");
+	menu->addAction("Add Game", [&]() -> void {
+		AddLibraryOption("newgame");
+	});
+	menuBar->addMenu(menu);
+
 	BuildLibraryView();
 }
 
@@ -14,9 +21,9 @@ Atlas::~Atlas() {}
 
 void Atlas::AddLibraryOption(const QString& text) {
 	LibraryOption* libraryOption = new LibraryOption(text);
-	leftPaneLayout->addWidget(libraryOption);
+	libraryOptionsList->AddLibraryOption(libraryOption);
 
-	connect(libraryOption, SIGNAL(libraryOptionClicked(LibraryOption*)), this, SLOT(ChangeRightPaneView(LibraryOption*)));
+	connect(libraryOptionsList, SIGNAL(libraryOptionSelected(LibraryOption*)), this, SLOT(ChangeRightPaneView(LibraryOption*)));
 }
 
 void Atlas::BuildLibraryView() {
@@ -24,19 +31,18 @@ void Atlas::BuildLibraryView() {
 	setLayout(appContainerlayout);
 
 	libraryViewLayout = new QHBoxLayout();
-	leftPaneLayout = new QVBoxLayout();
-	leftPaneLayout->setAlignment(Qt::AlignmentFlag::AlignTop);
 
 	libraryView = new QWidget();
 	libraryView->setLayout(libraryViewLayout);
-	leftPane = new QWidget(libraryView);
-	leftPane->setLayout(leftPaneLayout);
+	libraryOptionsList = new LibraryOptionsList(libraryView);
 	librarySelectionView = new LibrarySelectionView();
 
-	libraryViewLayout->addWidget(leftPane);
+	libraryViewLayout->addWidget(libraryOptionsList);
 	libraryViewLayout->addWidget(librarySelectionView);
 
 	appContainerlayout->addWidget(libraryView);
+	libraryViewLayout->setStretch(0, 1);
+	libraryViewLayout->setStretch(1, 2);
 }
 
 void Atlas::ChangeRightPaneView(LibraryOption* selectedOption) {
