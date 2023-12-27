@@ -3,8 +3,10 @@
 #include <qwidget.h>
 #include <qboxlayout.h>
 #include <qlabel.h>
+#include <qlistwidget.h>
 #include "library_option_button.h"
 #include "library_selection_view.h"
+#include "library_options_list.h"
 
 class Atlas : public QWidget 
 {
@@ -23,10 +25,9 @@ private slots:
 private:
 	void BuildLibraryView();
 	QWidget* libraryView;
-	QWidget* leftPane;
+	LibraryOptionsList* libraryOptionsList;
 	LibrarySelectionView* librarySelectionView;
 
 	QVBoxLayout* appContainerlayout;
 	QHBoxLayout* libraryViewLayout;
-	QVBoxLayout* leftPaneLayout;
 };
