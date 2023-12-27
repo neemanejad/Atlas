@@ -23,7 +23,7 @@ void Atlas::AddLibraryOption(const QString& text) {
 	LibraryOption* libraryOption = new LibraryOption(text);
 	libraryOptionsList->AddLibraryOption(libraryOption);
 
-	connect(libraryOption, SIGNAL(libraryOptionClicked(LibraryOption*)), this, SLOT(ChangeRightPaneView(LibraryOption*)));
+	connect(libraryOptionsList, SIGNAL(libraryOptionSelected(LibraryOption*)), this, SLOT(ChangeRightPaneView(LibraryOption*)));
 }
 
 void Atlas::BuildLibraryView() {
@@ -42,7 +42,7 @@ void Atlas::BuildLibraryView() {
 
 	appContainerlayout->addWidget(libraryView);
 	libraryViewLayout->setStretch(0, 1);
-	libraryViewLayout->setStretch(1, 1);
+	libraryViewLayout->setStretch(1, 2);
 }
 
 void Atlas::ChangeRightPaneView(LibraryOption* selectedOption) {

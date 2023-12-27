@@ -6,6 +6,7 @@
 #include <qboxlayout.h>
 #include "library_option_button.h"
 #include <vector>
+#include <unordered_map>
 
 
 class LibraryOptionsList : public QListWidget
@@ -16,13 +17,15 @@ public:
 	~LibraryOptionsList();
 
 	void AddLibraryOption(LibraryOption* widget);
+	LibraryOption* GetLibraryOption(QString &libraryOptionText);
 
 signals:
-public slots:
-
+	void libraryOptionSelected(LibraryOption* libraryOption);
+private slots:
+	void selectedLibraryOption(QListWidgetItem* item);
 
 private:
-	std::vector<LibraryOption*> libraryOptions;
+	std::unordered_map<QString, LibraryOption*> libraryOptionsMap;
 	QScrollBar* verticalScrollBar;
 	QVBoxLayout* layout;
 };
