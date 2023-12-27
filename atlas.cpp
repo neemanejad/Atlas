@@ -12,7 +12,7 @@ Atlas::Atlas(QWidget* parent) : QWidget(parent) {
 
 	libraryView = new LibraryView(this);
 
-	menuBar = new QMenuBar(this);
+	menuBar = new QMenuBar();
 	QMenu* gamesMenu = new QMenu("Games", this);
 	QMenu* settingsMenu = new QMenu("Settings", this);
 	gamesMenu->addAction("Add Game", [&]() -> void {
@@ -29,6 +29,7 @@ Atlas::Atlas(QWidget* parent) : QWidget(parent) {
 	menuBar->addMenu(gamesMenu);
 	menuBar->adjustSize();
 
+	appContainerlayout->addWidget(menuBar);
 	appContainerlayout->addWidget(libraryView);
 }
 
