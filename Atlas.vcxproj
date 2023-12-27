@@ -99,7 +99,7 @@
     <QtMoc Include="atlas.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="library_option.h" />
+    <QtMoc Include="library_option_button.h" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="library_selection_view.h" />

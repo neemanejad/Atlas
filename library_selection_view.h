@@ -4,7 +4,7 @@
 #include <qpushbutton.h>
 #include <qboxlayout.h>
 #include <qlabel.h>
-#include "library_option.h"
+#include "library_option_button.h"
 
 class LibrarySelectionView : public QWidget
 {

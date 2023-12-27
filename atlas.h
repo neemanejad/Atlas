@@ -3,7 +3,7 @@
 #include <qwidget.h>
 #include <qboxlayout.h>
 #include <qlabel.h>
-#include "library_option.h"
+#include "library_option_button.h"
 #include "library_selection_view.h"
 
 class Atlas : public QWidget 

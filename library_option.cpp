@@ -1,4 +1,4 @@
-#include "library_option.h"
+#include "library_option_button.h"
 
 LibraryOption::LibraryOption(const QString &text, QWidget* parent) : QPushButton(text, parent) {
 	connect(this, SIGNAL(clicked(bool)), this, SLOT (clickedOption()));
