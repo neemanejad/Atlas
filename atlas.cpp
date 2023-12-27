@@ -1,6 +1,8 @@
 #include "atlas.h"
+#include "library_selection_view.h"
 #include <qpushbutton.h>
 #include <qlabel.h>
+#include <qsizepolicy.h>
 
 Atlas::Atlas(QWidget* parent) : QWidget(parent) {
 	setMinimumSize(600, 400);
@@ -18,26 +20,25 @@ void Atlas::AddLibraryOption(const QString& text) {
 }
 
 void Atlas::BuildLibraryView() {
+	appContainerlayout = new QVBoxLayout();
+	setLayout(appContainerlayout);
+
 	libraryViewLayout = new QHBoxLayout();
 	leftPaneLayout = new QVBoxLayout();
 	leftPaneLayout->setAlignment(Qt::AlignmentFlag::AlignTop);
-	rightPaneLayout = new QVBoxLayout();
-	rightPaneLayout->setAlignment(Qt::AlignmentFlag::AlignTop);
 
-	libraryView = new QWidget(this);
+	libraryView = new QWidget();
 	libraryView->setLayout(libraryViewLayout);
-	leftPane = new QWidget(this);
+	leftPane = new QWidget(libraryView);
 	leftPane->setLayout(leftPaneLayout);
-	rightPane = new QWidget(this);
-	rightPane->setLayout(rightPaneLayout);
+	librarySelectionView = new LibrarySelectionView();
 
 	libraryViewLayout->addWidget(leftPane);
-	libraryViewLayout->addWidget(rightPane);
+	libraryViewLayout->addWidget(librarySelectionView);
 
-	rightPaneLabel = new QLabel("Initial text");
-	rightPaneLayout->addWidget(rightPaneLabel);
+	appContainerlayout->addWidget(libraryView);
 }
 
 void Atlas::ChangeRightPaneView(LibraryOption* selectedOption) {
-	rightPaneLabel->setText(selectedOption->text());
+	librarySelectionView->ChangeSelection(selectedOption);
 }

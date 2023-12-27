@@ -92,6 +92,7 @@
   <ItemGroup>
     <ClCompile Include="atlas.cpp" />
     <ClCompile Include="library_option.cpp" />
+    <ClCompile Include="library_selection_view.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +100,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="library_option.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="library_selection_view.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

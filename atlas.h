@@ -4,6 +4,7 @@
 #include <qboxlayout.h>
 #include <qlabel.h>
 #include "library_option.h"
+#include "library_selection_view.h"
 
 class Atlas : public QWidget 
 {
@@ -23,10 +24,9 @@ private:
 	void BuildLibraryView();
 	QWidget* libraryView;
 	QWidget* leftPane;
-	QWidget* rightPane;
+	LibrarySelectionView* librarySelectionView;
+
+	QVBoxLayout* appContainerlayout;
 	QHBoxLayout* libraryViewLayout;
 	QVBoxLayout* leftPaneLayout;
-	QVBoxLayout* rightPaneLayout;
-
-	QLabel* rightPaneLabel;
 };
