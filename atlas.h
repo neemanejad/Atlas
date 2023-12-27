@@ -4,6 +4,7 @@
 #include <qboxlayout.h>
 #include <qlabel.h>
 #include <qlistwidget.h>
+#include <qmenubar.h>
 #include "library_option_button.h"
 #include "library_selection_view.h"
 #include "library_options_list.h"
@@ -23,11 +24,14 @@ private slots:
 	void ChangeRightPaneView(LibraryOption*);
 
 private:
-	void BuildLibraryView();
+	QMenuBar* menuBar;
 	QWidget* libraryView;
 	LibraryOptionsList* libraryOptionsList;
 	LibrarySelectionView* librarySelectionView;
 
 	QVBoxLayout* appContainerlayout;
 	QHBoxLayout* libraryViewLayout;
+
+	void BuildLibraryView();
+
 };

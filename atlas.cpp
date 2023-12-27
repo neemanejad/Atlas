@@ -7,6 +7,13 @@
 Atlas::Atlas(QWidget* parent) : QWidget(parent) {
 	setMinimumSize(600, 400);
 
+	menuBar = new QMenuBar(this);
+	QMenu* menu = new QMenu("Games");
+	menu->addAction("Add Game", [&]() -> void {
+		AddLibraryOption("newgame");
+	});
+	menuBar->addMenu(menu);
+
 	BuildLibraryView();
 }
 
