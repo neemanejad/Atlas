@@ -94,6 +94,7 @@
     <ClCompile Include="library_option_button.cpp" />
     <ClCompile Include="library_options_list.cpp" />
     <ClCompile Include="library_selection_view.cpp" />
+    <ClCompile Include="library_view.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +108,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="library_options_list.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="library_view.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
