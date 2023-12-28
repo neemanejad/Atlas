@@ -13,9 +13,12 @@ public:
 	~LibraryView();
 	void AddLibraryOption(const QString& text);
 
+
 signals:
 private slots:
 	void ChangeRightPaneView(LibraryOption*);
+	void SetLibraryOptionAsNotRunning(QString& filepath);
+	void SetLibraryOptionAsRunning(QString& filepath);
 
 private:
 	QMenuBar* menuBar;

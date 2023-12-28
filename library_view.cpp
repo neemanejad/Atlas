@@ -1,7 +1,12 @@
 #include "library_view.h"
+#include "process_manager.h"
 
 LibraryView::LibraryView(QWidget* parent) : QWidget(parent) {
 	BuildLibraryView();
+
+	connect(ProcessManager::GetManager(), SIGNAL(threadStarted(QString&)), this, SLOT(SetLibraryOptionAsRunning(QString&)));
+	connect(ProcessManager::GetManager(), SIGNAL(threadFinished(QString&)), this, SLOT(SetLibraryOptionAsNotRunning(QString&)));
+
 }
 
 LibraryView::~LibraryView() {}
@@ -30,4 +35,14 @@ void LibraryView::AddLibraryOption(const QString& text) {
 
 void LibraryView::ChangeRightPaneView(LibraryOption* selectedOption) {
 	librarySelectionView->ChangeSelection(selectedOption);
+}
+
+void LibraryView::SetLibraryOptionAsNotRunning(QString& filepath) {
+	libraryOptionsList->SetLibraryOptionState(filepath, LibraryOptionState::NOT_RUNNING);
+	librarySelectionView->SetLibrarySelectionState(LibraryOptionState::NOT_RUNNING);
+}
+
+void LibraryView::SetLibraryOptionAsRunning(QString& filepath) {
+	libraryOptionsList->SetLibraryOptionState(filepath, LibraryOptionState::RUNNING);
+	librarySelectionView->SetLibrarySelectionState(LibraryOptionState::RUNNING);
 }

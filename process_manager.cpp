@@ -22,8 +22,8 @@ void ProcessManager::AddRunningProcessEntry(QString& executablePath) {
 	AtlasThread* thread = new AtlasThread(executablePath);
 	connect(thread, SIGNAL(threadFinished(QString)), this, SLOT(RemoveRunningProcessEntry(QString)));
 	runningProcesses[executablePath.toStdString()] = thread;
-	thread->start();
 	emit threadStarted(executablePath);
+	thread->start();
 }
 
 

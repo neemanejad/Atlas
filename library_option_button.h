@@ -4,6 +4,11 @@
 #include <qpushbutton.h>
 #include <string>
 
+enum LibraryOptionState {
+	NOT_RUNNING,
+	RUNNING
+};
+
 class LibraryOption : public QPushButton
 {
 Q_OBJECT

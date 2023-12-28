@@ -13,6 +13,7 @@ public:
 	explicit LibrarySelectionView(LibraryOption* selectedOption = nullptr, QWidget* parent = nullptr);
 	~LibrarySelectionView();
 	void ChangeSelection(LibraryOption* selectedOption);
+	void SetLibrarySelectionState(LibraryOptionState state);
 
 signals:
 	void clickedExecute(QString& executablePath);
