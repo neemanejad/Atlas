@@ -91,11 +91,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="atlas.cpp" />
+    <ClCompile Include="atlas_thread.cpp" />
     <ClCompile Include="library_option_button.cpp" />
     <ClCompile Include="library_options_list.cpp" />
     <ClCompile Include="library_selection_view.cpp" />
     <ClCompile Include="library_view.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="process_manager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="atlas.h" />
@@ -111,6 +113,12 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="library_view.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="process_manager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="atlas_thread.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

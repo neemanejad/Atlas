@@ -15,9 +15,13 @@ public:
 	void ChangeSelection(LibraryOption* selectedOption);
 
 signals:
+	void clickedExecute(QString& executablePath);
 private slots:
+	void ExecuteButtonClicked();
 
 private:
+	QString executablePath;
+	QString executableName;
 	QVBoxLayout* layout;
 	QLabel* label;
 	QPushButton* executeButton;
